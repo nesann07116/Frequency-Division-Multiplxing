@@ -30,13 +30,13 @@ To generate multiple message signals, multiplex them using AM-FDM, and recover e
 5. Demodulate by mixing with original carrier and low-pass filtering.
 6. Plot original messages, FDM signal and recovered signals.
 # PROGRM
-```scilab
+```
 clc; clear; close;
 fs=80000; N=floor(0.05*fs); t=(0:N-1)/fs;
-fm=[415 425 435 445 455 465];
-fc=[4150 4250 4350 4450 4550 4650];
-Am=[5.3 5.4 5.5 5.6 5.7 5.8];
-Ac=[10.7 10.9 11.1 11.3 11.5 11.7];
+fm=[474 484 494 504 514 524];
+fc=[4740 4840 4940 5040 5140 5240];
+Am=[6.1 6.2 6.3 6.4 6.5 6.6];
+Ac=[12.2 12.4 12.6 12.8 13 13.2];
 num=length(fm);
 for i=1:num
     m(i,:)=Am(i)*sin(2*%pi*fm(i)*t);
@@ -72,19 +72,25 @@ for i=1:num subplot(num,1,i); plot(t,m(i,:)); end
 scf(2); clf; plot(t,fdm);
 scf(3); clf;
 for i=1:num subplot(num,1,i); plot(t,demod(i,:)); end
+
 ```
 # OUTPUT
 
-<img width="1366" height="616" alt="image" src="https://github.com/user-attachments/assets/c044b2cb-ad73-44ac-b7dc-44d8fa63ec4a" />
+<img width="1918" height="1078" alt="image" src="https://github.com/user-attachments/assets/ba2da03e-330d-4c58-ae43-e9e81cfb39c5" />
 
-<img width="1366" height="616" alt="image" src="https://github.com/user-attachments/assets/a41ea13b-2816-4749-9521-9b83cd7224f9" />
+<img width="1917" height="1073" alt="image" src="https://github.com/user-attachments/assets/37599d05-5940-4922-b5b9-c3e8bbb889ae" />
 
-<img width="1366" height="616" alt="image" src="https://github.com/user-attachments/assets/97fafe97-d0ff-4ba8-8f68-ab803c2bb935" />
+<img width="1915" height="1078" alt="image" src="https://github.com/user-attachments/assets/2bf3e967-b7e8-41b7-99dd-b2537ce896dd" />
+
+
 
 # MANUAL CALCULATION
 
-![1](https://github.com/user-attachments/assets/54a0f188-85c9-4aa9-8a93-750740e80b23)
-![2](https://github.com/user-attachments/assets/a38e424f-a6a2-44ea-ac65-4a4942cd4f4d)
+![WhatsApp Image 2025-11-26 at 22 01 10_e32fb658](https://github.com/user-attachments/assets/8606d8e9-9a60-4b97-ba10-fe4fe6c27f94)
+
+![WhatsApp Image 2025-11-26 at 22 01 30_159406ad](https://github.com/user-attachments/assets/f29aab32-0212-4191-91c5-f495be3ded84)
+
+
 
 # RESULT 
 
